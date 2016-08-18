@@ -1,14 +1,10 @@
-########## Variables
+DIRECTORY="$HOME/.vim/bundle/Vundle.vim"
 
-dir=~/dotfiles                    # dotfiles directory
-files=".vimrc"        		# list of files/folders to symlink in homedir
+ln -s $HOME/dotfiles/vim/vimrc ~/.vimrc
 
-##########
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in $files; do
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/$file
-done
+if [ ! -d  "$DIRECTORY" ]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git $DIRECTORY
+fi
 
-source ~/.vimrc
+vim +PluginInstall

@@ -1,4 +1,4 @@
-"Ben McCormick's vimrc
+
 
 " Setup stuff
 " ===========
@@ -28,7 +28,7 @@ Plugin 'gmarik/vundle'
 
 "Airline provides a stylish appearance for the styleline
 Plugin 'bling/vim-airline'
-
+Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic'
 
 "End Vundle
@@ -38,6 +38,10 @@ filetype plugin indent on
 "Pull in matchit.vim, which is already bundled with Vim
 ""runtime! macros/matchit.vim
 
+" Open Nerd Tree
+map <C-n> :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeFind<CR>
+
 " Appearance
 " ==========
 
@@ -46,7 +50,7 @@ syntax on
 syntax enable
 
 "Use Source Code Pro for the font
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 "set guifont=Source\ Code\ Pro\ For\ Powerline:h16
 set noshowmode                                  " Let airline handle the mode display
 
@@ -66,6 +70,7 @@ set hidden                      " Buffers can exist in the background
 set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
 set shortmess=filnxtToOI        " see :help shortmess
+set shell=/bin/zsh
 
 " Mouse
 " ======
