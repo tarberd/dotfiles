@@ -1,6 +1,6 @@
 DIRECTORY="$HOME/.vim/bundle/Vundle.vim"
 
-ln -s $HOME/dotfiles/vim/vimrc ~/.vimrc
+ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 
 
 if [ ! -d  "$DIRECTORY" ]; then
