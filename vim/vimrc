@@ -1,5 +1,3 @@
-
-
 " Setup stuff
 " ===========
 
@@ -9,9 +7,9 @@ set nocompatible
 " Shell stuff here
 
 " Set shell to zsh (fish and VIM don't play well together)
-""set shell=zsh
+set shell=zsh
 "Don't dump distracting text to terminal during searches!
-""set shellpipe=2>/dev/null>
+set shellpipe=2>/dev/null>
 
 " Plugins here
 " =============
@@ -51,8 +49,9 @@ syntax enable
 
 "Use Source Code Pro for the font
 let g:airline_powerline_fonts = 1
-"set guifont=Source\ Code\ Pro\ For\ Powerline:h16
-set noshowmode                                  " Let airline handle the mode display
+
+" Let airline handle the mode display (THIS IS A MUST)
+set noshowmode
 
 " General Config
 " ==============
@@ -61,7 +60,7 @@ let mapleader='\'               " I just use the default Leader
 set encoding=utf-8
 set number                      " Line numbers are nice
 set backspace=indent,eol,start  " Allow backspace in insert mode
-set history=1000                " Store lots of :cmdline history
+set history=100                 " Store lots of :cmdline history
 set showcmd                     " Show incomplete cmds down the bottom
 set gcr=a:blinkon0              " Disable cursor blink
 set autoread                    " Reload files changed outside vim
@@ -70,7 +69,6 @@ set hidden                      " Buffers can exist in the background
 set splitright                  " Opens vertical split right of current window
 set splitbelow                  " Opens horizontal split below current window
 set shortmess=filnxtToOI        " see :help shortmess
-set shell=/bin/zsh
 
 " Mouse
 " ======
@@ -81,8 +79,7 @@ set ttyfast
 set mouse=a
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-""set ttymouse=xterm2
-
+set ttymouse=xterm2
 
 " Search Settings
 " ===============
@@ -98,7 +95,6 @@ set nobackup
 set nowritebackup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
 
 " Indentation and Display
 " =======================
@@ -126,11 +122,10 @@ set scrolloff=10
 set sidescrolloff=15
 set sidescroll=1
 
-
 " Custom commands
 " ===============
 
-"\rr => refresh vimrc
+"\rr -> refresh vimrc
 map <leader>rr :source ~/.vimrc<CR>
 
 " Plugin Options
