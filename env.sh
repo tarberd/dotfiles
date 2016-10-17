@@ -9,7 +9,6 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # Aliases
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
-alias ls=la
 
 # Use sublimetext for editing config files
 alias zshconfig="vim ~/.zshrc"
