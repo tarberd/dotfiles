@@ -1,0 +1,6 @@
+[options]
+font = Source Code Pro for Powerline,Sauce Code Powerline 14px
+ 
+[colors]
+foreground = #fae2cc
+background = rgba(41,41,87,0.7)
