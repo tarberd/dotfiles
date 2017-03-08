@@ -9,16 +9,16 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $ws1 1: coding
-set $ws2 2: internet
-set $ws3 3: coding
-set $ws4 4: coding
-set $ws5 5: coding
-set $ws6 6: coding
-set $ws7 7: coding
-set $ws8 8: coding
-set $ws9 9: social stuff
-set $ws10 10: music & video
+set $ws1 [ 1 ] 
+set $ws2 [ 2 ]
+set $ws3 [ 3 ]
+set $ws4 [ 4 ] 
+set $ws5 [ 5 ] 
+set $ws6 [ 6 ]
+set $ws7 [ 7 ]
+set $ws8 [ 8 ]
+set $ws9 [ 9 ]
+set $ws10 [ 10 ]
 
 set $up j
 set $down k
@@ -95,8 +95,8 @@ bindsym $mod+$split_v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -150,7 +150,7 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym $right resize shrink width 10 px or 10 ppt
+        bindsym $left resize shrink width 10 px or 10 ppt
         bindsym $up resize grow height 10 px or 10 ppt
         bindsym $down resize shrink height 10 px or 10 ppt
         bindsym $right resize grow width 10 px or 10 ppt
