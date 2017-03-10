@@ -7,7 +7,7 @@ Plugin 'gmarik/vundle'
 
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'scroolorse/syntastic'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on

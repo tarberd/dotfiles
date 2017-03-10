@@ -7,4 +7,3 @@ if [ ! -d  "$DIRECTORY" ]; then
   git clone https://github.com/VundleVim/Vundle.vim.git $DIRECTORY
 fi
 
-vim +PluginInstall
