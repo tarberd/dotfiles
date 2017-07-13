@@ -42,6 +42,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General vim config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader = " "
+
 noremap ; l
 noremap l k
 noremap k j
@@ -53,6 +55,11 @@ noremap <C-W>l <C-W>k
 noremap <C-W>k <C-W>j
 noremap <C-W>j <C-W>h
 noremap <C-W>h <C-W>;
+
+map <leader>j <C-W>j
+map <leader>k <C-W>k
+map <leader>l <C-W>l
+map <leader>; <C-W>;
 
 map <leader>r :source ~/.vimrc<CR>
 
@@ -71,7 +78,7 @@ set magic
 set ruler
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
-
+set whichwrap+=<,>,h,l
 "this makes one line stay as one line :)
 set nowrap
 "this hides buffers
@@ -108,5 +115,4 @@ set tw=500
 
 set ai "Auto indent
 set si "Smart indent
-set nowrap "Wrap lines
 
