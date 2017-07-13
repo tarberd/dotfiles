@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'tpope/vim-fugitive'
 
@@ -22,7 +23,6 @@ let g:airline_powerline_fonts = 1
 set noshowmode
 set laststatus=2
 
-let g:airline_theme='solarized'
 
 "" NERD-Tree
 """"""""""""
@@ -42,6 +42,17 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General vim config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
+noremap h ;
+
+noremap <C-W>; <C-W>l
+noremap <C-W>l <C-W>k
+noremap <C-W>k <C-W>j
+noremap <C-W>j <C-W>h
+noremap <C-W>h <C-W>;
 
 map <leader>r :source ~/.vimrc<CR>
 
