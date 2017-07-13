@@ -1,64 +1,103 @@
-" Plugins here
-" =============
-filetype off
+""Bernardo Ferrari Mendonca vimrc
+
+""Plugins
+"""""""""
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'scroolorse/syntastic'
+Plugin 'tpope/vim-fugitive'
 
-call vundle#end()
-filetype plugin indent on
+Plugin 'altercation/vim-colors-solarized'
 
-" Open Nerd Tree
-map <C-n> :NERDTreeToggle<CR>
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-" Appearance
-" ==========
-syntax on
-syntax enable
-
+"" vim-airline
+""""""""""""""
 let g:airline_powerline_fonts = 1
 set noshowmode
+set laststatus=2
 
-" General Config
-" ==============
-set number                      " Line numbers are nice
-set history=100                 " Store lots of :cmdline history
-set showcmd                     " Show incomplete cmds down the bottom
-set autoread                    " Reload files changed outside vim
-set laststatus=2                " Always show status line
-set hidden                      " Buffers can exist in the background
-set splitright                  " Opens vertical split right of current window
-set splitbelow                  " Opens horizontal split below current window
+let g:airline_theme='solarized'
 
-" Search Settings
-" ===============
+"" NERD-Tree
+""""""""""""
+map <C-n> :NERDTreeToggle<CR>
 
-set incsearch        " Find the next match as we type the search
-set hlsearch         " Highlight searches by default
+"start vim with nerdtree, no need to vim . "
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" Turn Off Swap Files
-" ===================
-set noswapfile
-set nobackup
-set nowritebackup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+"no closing nerd-tree when first opening a file
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-" Indentation and Display
-" =======================
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
+"close nerd-tree when close last file
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General vim config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map <leader>r :source ~/.vimrc<CR>
+
+"" Sugar baby :)
+syntax enable
+set number
+"for God sake
+set splitbelow
+set splitright
+"this makes cursor show maching {}
+set showmatch
+
+" For regular expressions turn magic on
+set magic
+"Always show current position
+set ruler
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+
+"this makes one line stay as one line :)
+set nowrap
+"this hides buffers
+set hid
+"this is command history
+set history=100
 
 " Start scrolling when we're getting close to margins
 set scrolloff=13
 set sidescrolloff=15
 set sidescroll=1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+" Be smart when using tabs ;)
+set smarttab
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set nowrap "Wrap lines
+

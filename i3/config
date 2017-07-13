@@ -20,18 +20,18 @@ set $ws8 8:[ 8 ]
 set $ws9 9:[ 9 ]
 set $ws10 10:[ 10 ]
 
-set $up j
-set $down k
-set $left h
-set $right l
+set $up k
+set $down l
+set $left j
+set $right semicolon
 
-set $split_h semicolon
+set $split_h h
 set $split_v v
 
 set $mod Mod4
 
 
-assign [class="Firefox"] $ws2
+assign [class="Firefox"] $ws1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -140,7 +140,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec gnome-screensaver-command -l
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
