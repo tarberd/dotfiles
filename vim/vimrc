@@ -13,6 +13,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'tpope/vim-fugitive'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -23,6 +24,13 @@ let g:airline_powerline_fonts = 1
 set noshowmode
 set laststatus=2
 
+"" vim-cpp-enhanced-highlight
+"""""""""""""""""""""""""""""
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
 
 "" NERD-Tree
 """"""""""""
@@ -64,6 +72,7 @@ map <leader>; <C-W>;
 map <leader>r :source ~/.vimrc<CR>
 
 "" Sugar baby :)
+set t_Co=16
 syntax enable
 set number
 "for God sake
