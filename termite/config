@@ -2,7 +2,7 @@
 font = Source Code Pro 14px
 
 [colors]
-background = #1f1d45
+background = rgba(0x1f,0x1d,0x45,0.8)
 cursor = #efbf38
 foreground = #f8dcc0
 color0 =  #050404
