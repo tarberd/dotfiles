@@ -19,8 +19,8 @@ set $ws10 10
 
 font pango:Mensch 8 
 
-gaps inner 20
-gaps outer 4
+gaps inner 15
+gaps outer 0
 
 output "*" background $HOME/dotfiles/wallp/wallp.jpg fill
 
@@ -71,7 +71,7 @@ bar {
 set $mod Mod4
 
 set $terminal_command exec termite
-set $lock_command exec swaylock -c 000000bb
+set $lock_command exec swaylock -c 000000df
 set $dmenu_command exec dmenu_run
 
 #move to home row
