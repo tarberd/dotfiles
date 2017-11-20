@@ -6,8 +6,8 @@
 default_border pixel 
 
 #preaty workspace fonts using ttf-awsome-fonts 
-set $ws1 "1: "
-set $ws2 "2: "
+set $ws1 "1: "
+set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
 set $ws5 "5: "
@@ -22,7 +22,14 @@ font pango:Mensch 8
 gaps inner 15
 gaps outer 0
 
-output "*" background $HOME/dotfiles/wallp/wallp.jpg fill
+set $output_center "HDMI-A-1"
+set $output_right  "eDP-1"
+
+output $output_center pos 0,0 res 2560x1080 bg $HOME/dotfiles/wallp/space_kurgestag.png fill
+output $output_right  pos 2560,0 res 1920x1080 bg $HOME/dotfiles/wallp/red_nirvana.png fill
+
+workspace $ws1 output $output_center
+workspace $ws10 output $output_right
 
 ##########################################################
 # Bar Config
@@ -86,6 +93,7 @@ set $split_v v
 set $reload r
 set $kill   q
 set $lock   e
+set $exit   x
 
 set $dmenu  d
 
@@ -102,6 +110,7 @@ bindsym $mod+Return $terminal_command
 bindsym $mod+$dmenu $dmenu_command
 
 bindsym $mod+Shift+$kill    kill
+bindsym $mod+Shift+$exit    exit
 bindsym $mod+Shift+$reload  reload
 bindsym $mod+Shift+$lock    $lock_command
 
@@ -129,14 +138,15 @@ bindsym $mod+Shift+$right   move right
 ##########################################################
 
 mode "resize" {
-        bindsym $left   resize shrink   width   10 px or 10 ppt
-        bindsym $up     resize grow     height  10 px or 10 ppt
-        bindsym $down   resize shrink   height  10 px or 10 ppt
-        bindsym $right  resize grow     width   10 px or 10 ppt
+    bindsym $left   resize shrink   width   10 px or 10 ppt
+    bindsym $up     resize grow     height  10 px or 10 ppt
+    bindsym $down   resize shrink   height  10 px or 10 ppt
+    bindsym $right  resize grow     width   10 px or 10 ppt
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
+
 bindsym $mod+$resize mode "resize"
 
 ##########################################################

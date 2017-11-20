@@ -98,7 +98,7 @@ set history=100
 " Start scrolling when we're getting close to margins
 set scrolloff=13
 set sidescrolloff=15
-set sidescroll=1
+set sidescroll=5
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
