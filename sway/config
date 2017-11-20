@@ -58,7 +58,6 @@ set $color15  #f6f5fb
 bar {
     position top
     swaybar_command swaybar
-    status_command 
 
     strip_workspace_numbers no
     font pango:Mensch 9
