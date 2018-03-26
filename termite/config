@@ -1,5 +1,6 @@
 [options]
 font = Source Code Pro 15px
+scrollback_lines = 100000
 
 [colors]
 background = rgba(0x1f,0x1d,0x45,0.8)
