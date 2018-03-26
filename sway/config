@@ -22,10 +22,10 @@ font pango:Mensch 8
 gaps inner 15
 gaps outer 0
 
-set $output_center "VGA-1"
+set $output_center "HDMI-A-1"
 set $output_right  "eDP-1"
 
-output $output_center pos 0,0 res 1680x1050 bg $HOME/dotfiles/wallp/space_kurgestag.png fill
+output $output_center pos 0,0 res 2560x1050 bg $HOME/dotfiles/wallp/space_kurgestag.png fill
 output $output_right  pos 2560,0 res 1920x1080 bg $HOME/dotfiles/wallp/red_nirvana.png fill
 
 workspace $ws1 output $output_center
