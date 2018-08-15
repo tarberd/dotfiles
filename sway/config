@@ -9,7 +9,7 @@
 ###############################################################################
 
 #this makes borderless (normal/pixel/none)
-default_border pixel
+default_border none
 
 #preaty workspace fonts using ttf-awsome-fonts 
 set $ws1 "1: "
