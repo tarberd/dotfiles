@@ -16,6 +16,13 @@ mkdir $HOME/.config/i3
 mkdir $HOME/.config/sway
 mkdir $HOME/.config/termite
 
+mkdir $HOME/.config/polybar
+ln -sf $HOME/dotfiles/polybar/config $HOME/.config/polybar/config
+
+mkdir $HOME/.config/waybar
+ln -sf $HOME/dotfiles/waybar/config $HOME/.config/waybar/config
+ln -sf $HOME/dotfiles/waybar/style.css $HOME/.config/waybar/style.css
+
 ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/i3/config $HOME/.config/i3/config

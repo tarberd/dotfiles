@@ -1,9 +1,15 @@
-##########################################################
+###############################################################################
+# Bernardo Ferrari Mendonca
+# This is my config file, feel free to copy, modify, and 
+# do whatever you want with this :)
+###############################################################################
+
+###############################################################################
 # Ricing
-##########################################################
+###############################################################################
 
 #this makes borderless (normal/pixel/none)
-default_border pixel 
+default_border pixel
 
 #preaty workspace fonts using ttf-awsome-fonts 
 set $ws1 "1: "
@@ -19,60 +25,29 @@ set $ws10 10
 
 font pango:Mensch 8 
 
-gaps inner 15
+gaps inner 5
 gaps outer 0
 
-set $output_center "HDMI-A-1"
-set $output_right  "eDP-1"
+set $output_center HDMI-A-1
+set $output_right  eDP-1
 
-output $output_center pos 0,0 res 2560x1050 bg $HOME/dotfiles/wallp/space_kurgestag.png fill
-output $output_right  pos 2560,0 res 1920x1080 bg $HOME/dotfiles/wallp/red_nirvana.png fill
+set $wallpaper $HOME/dotfiles/wallpaper/blue_island.jpg
+
+output $output_center pos 0,0 res 2560x1050 bg $wallpaper fill
+output $output_right  pos 2560,0 res 1920x1080 bg $wallpaper fill
 
 workspace $ws1 output $output_center
 workspace $ws10 output $output_right
 
-##########################################################
+###############################################################################
 # Bar Config
-##########################################################
+###############################################################################
 
-set $background  #1f1d45
-set $cursor  #efbf38
-set $foreground  #f8dcc0
-set $color0   #050404
-set $color1  #bd0013
-set $color2  #4ab118
-set $color3  #e7741e
-set $color4  #0f4ac6
-set $color5  #665993
-set $color6  #70a598
-set $color7  #f8dcc0
-set $color8  #4e7cbf
-set $color9  #fc5f5a
-set $color10  #9eff6e
-set $color11  #efc11a
-set $color12  #1997c6
-set $color13  #9b5953
-set $color14  #c8faf4
-set $color15  #f6f5fb
+exec_always --no-startup-id $HOME/dotfiles/waybar/launch.sh
 
-bar {
-    position top
-    swaybar_command swaybar
-
-    strip_workspace_numbers no
-    font pango:Mensch 9
-    colors {
-        statusline $color14
-        background $background
-        separator  #b7b7b7
-        inactive_workspace #00000000 #dedede #555555
-        focused_workspace  $color14  $color14 #555555
-        urgent_workspace   #00000000 #dedede #00a0ff
-    }
-}
-##########################################################
+###############################################################################
 # My bindings
-##########################################################
+###############################################################################
 
 set $mod Mod4
 
@@ -100,9 +75,9 @@ set $full_screen f
 
 set $resize r
 
-##########################################################
+###############################################################################
 # My Commands
-##########################################################
+###############################################################################
 
 bindsym $mod+Return $terminal_command
 
@@ -132,9 +107,9 @@ bindsym $mod+Shift+$down    move down
 bindsym $mod+Shift+$up      move up
 bindsym $mod+Shift+$right   move right
 
-##########################################################
+###############################################################################
 # Sway Modes
-##########################################################
+###############################################################################
 
 mode "resize" {
     bindsym $left   resize shrink   width   10 px or 10 ppt
@@ -148,9 +123,9 @@ mode "resize" {
 
 bindsym $mod+$resize mode "resize"
 
-##########################################################
+###############################################################################
 # Workspace stuf
-##########################################################
+###############################################################################
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
