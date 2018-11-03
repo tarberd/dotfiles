@@ -33,7 +33,7 @@ set $output_right  eDP-1
 
 set $wallpaper $HOME/dotfiles/wallpaper/blue_island.jpg
 
-output $output_center pos 0,0 res 2560x1050 bg $wallpaper fill
+output $output_center pos 0,0 res 2560x1080 bg $wallpaper fill
 output $output_right  pos 2560,0 res 1920x1080 bg $wallpaper fill
 
 workspace $ws1 output $output_center

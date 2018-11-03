@@ -3,9 +3,10 @@
     border-radius: 0;
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
+    min-height: 0;
 }
 
-window {
+window#waybar {
     background: rgba(0x1f,0x1d,0x45,0.8);
     border-bottom: 3px solid rgba(0x1f,0x1d,0x45,1);
     color: white;
@@ -18,16 +19,17 @@ window {
     border-bottom: 3px solid transparent;
 }
 
-#workspaces button.icon label {
-    font-size: 10px;
-}
-
 #workspaces button.focused {
     background: #64727D;
     border-bottom: 3px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify {
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
     padding: 0 10px;
     margin: 0 5px;
 }
@@ -53,7 +55,7 @@ window {
     }
 }
 
-#battery.warning {
+#battery.warning:not(.charging) {
     background: #f53c3c;
     color: white;
     animation-name: blink;
@@ -76,6 +78,10 @@ window {
     background: #2980b9;
 }
 
+#network.disconnected {
+    background: #f53c3c;
+}
+
 #pulseaudio {
     background: #f1c40f;
     color: black;
@@ -89,4 +95,8 @@ window {
 #custom-spotify {
     background: #66cc99;
     color: #2a5c45;
+}
+
+#tray {
+    background-color: #2980b9;
 }
