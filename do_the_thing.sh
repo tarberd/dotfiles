@@ -1,5 +1,6 @@
 git config --global user.email "bernardo.mferrari@gmail.com"
 git config --global user.name "tarberd"
+git config --global core.editor "vim"
 
 DIRECTORY_VUNDLE="$HOME/.vim/bundle/Vundle.vim"
 
