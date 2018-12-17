@@ -29,3 +29,7 @@ ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/i3/config $HOME/.config/i3/config
 ln -sf $HOME/dotfiles/sway/config $HOME/.config/sway/config
 ln -sf $HOME/dotfiles/termite/config $HOME/.config/termite/config
+
+ln -sf $HOME/dotfiles/chunkwm/chunkwmrc $HOME/.chunkwmrc
+ln -sf $HOME/dotfiles/skhd/skhdrc $HOME/.skhdrc
+ln -sf $HOME/dotfiles/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
