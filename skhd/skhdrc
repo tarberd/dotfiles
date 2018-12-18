@@ -84,7 +84,7 @@
 # ]
 
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : open -na /Applications/Alacritty.app/Contents/MacOS/alacritty
+alt - return : open -na /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # open qutebrowser
 cmd + shift - return : ~/Scripts/qtb.sh
@@ -93,13 +93,14 @@ cmd + shift - return : ~/Scripts/qtb.sh
 cmd - m : open -na /Applications/mpv.app $(pbpaste)
 
 # close focused window
-alt - w : chunkc tiling::window --close
+alt + shift - q : chunkc tiling::window --close
+alt + shift - r : brew services restart chunkwm && brew services restart skhd
 
 # focus window
-alt - h : chunkc tiling::window --focus west
-alt - j : chunkc tiling::window --focus south
-alt - k : chunkc tiling::window --focus north
-alt - l : chunkc tiling::window --focus east
+alt - j : chunkc tiling::window --focus west
+alt - k : chunkc tiling::window --focus south
+alt - l : chunkc tiling::window --focus north
+alt - 0x29 : chunkc tiling::window --focus east
 
 cmd - j : chunkc tiling::window --focus prev
 cmd - k : chunkc tiling::window --focus next
@@ -108,10 +109,10 @@ cmd - k : chunkc tiling::window --focus next
 shift + alt - 0 : chunkc tiling::desktop --equalize
 
 # swap window
-shift + alt - h : chunkc tiling::window --swap west
-shift + alt - j : chunkc tiling::window --swap south
-shift + alt - k : chunkc tiling::window --swap north
-shift + alt - l : chunkc tiling::window --swap east
+shift + alt - j : chunkc tiling::window --swap west
+shift + alt - k : chunkc tiling::window --swap south
+shift + alt - l : chunkc tiling::window --swap north
+shift + alt - 0x29 : chunkc tiling::window --swap east
 
 # move window
 shift + cmd - h : chunkc tiling::window --warp west

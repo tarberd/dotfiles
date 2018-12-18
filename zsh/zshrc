@@ -7,7 +7,7 @@ ZSH_THEME="af-magic"
 setopt RM_STAR_SILENT
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git command-not-found colorize compleat colored-man-pages)
+plugins=(git colorize compleat)
 
 source $ZSH/oh-my-zsh.sh
 
