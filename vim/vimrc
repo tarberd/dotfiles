@@ -1,32 +1,55 @@
 ""Bernardo Ferrari Mendonca vimrc
 
-""Plugins
-"""""""""
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Vundle Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'scrooloose/nerdtree.git'
+
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ntpeters/vim-better-whitespace'
 
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+
 ""Plugin 'valloric/youcompleteme'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" C++ clang-format
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! Formatonsave()
+  let l:formatdiff = 1
+  pyf /usr/share/clang/clang-format.py
+endfunction
+autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" C++ rustfmt
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-better-whitespace
-""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
+let g:strip_only_modified_lines=0
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-airline
-""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 set noshowmode
 set laststatus=2
@@ -73,12 +96,14 @@ let g:NERDTrimTrailingWhitespace = 1
 let mapleader = " "
 
 noremap ; l
+noremap ç l
 noremap l k
 noremap k j
 noremap j h
 noremap h ;
 
 noremap <C-W>; <C-W>l
+noremap <C-W>ç <C-W>l
 noremap <C-W>l <C-W>k
 noremap <C-W>k <C-W>j
 noremap <C-W>j <C-W>h
@@ -88,6 +113,7 @@ map <leader>j <C-W>j
 map <leader>k <C-W>k
 map <leader>l <C-W>l
 map <leader>; <C-W>;
+map <leader>ç <C-W>;
 
 map <leader>r :source ~/.vimrc<CR>
 

@@ -1,6 +1,6 @@
 ###############################################################################
 # Bernardo Ferrari Mendonca
-# This is my config file, feel free to copy, modify, and 
+# This is my config file, feel free to copy, modify, and
 # do whatever you want with this :)
 ###############################################################################
 
@@ -8,10 +8,21 @@
 # Ricing
 ###############################################################################
 
+set $teclado_logitech 1133:49948:Logitech_USB_Keyboard
+
+input $teclado_logitech {
+    xkb_layout br
+}
+
+input 1241:32776:OBINLB_USB-HID_Keyboard {
+    xkb_layout us
+    xkb_variant intl
+}
+
 #this makes borderless (normal/pixel/none)
 default_border none
 
-#preaty workspace fonts using ttf-awsome-fonts 
+#preaty workspace fonts using ttf-awsome-fonts
 set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
@@ -23,7 +34,7 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 
-font pango:Mensch 8 
+font pango:Mensch 8
 
 gaps inner 5
 gaps outer 0
@@ -54,6 +65,7 @@ set $mod Mod4
 set $terminal_command exec termite
 set $lock_command exec swaylock -c 000000df
 set $dmenu_command exec dmenu_run
+set $grim_command exec grim -g "$(slurp)" ~/Pictures/screenshot.png
 
 #move to home row
 set $up     k
@@ -70,6 +82,7 @@ set $lock   e
 set $exit   x
 
 set $dmenu  d
+set $grim  p
 
 set $full_screen f
 
@@ -82,6 +95,7 @@ set $resize r
 bindsym $mod+Return $terminal_command
 
 bindsym $mod+$dmenu $dmenu_command
+bindsym $mod+$grim  $grim_command
 
 bindsym $mod+Shift+$kill    kill
 bindsym $mod+Shift+$exit    exit
@@ -93,6 +107,8 @@ bindsym $mod+$split_v split v
 
 bindsym $mod+$full_screen fullscreen
 
+
+bindsym $mod+t layout default
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -101,6 +117,7 @@ bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
 bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
+bindsym $mod+ccedilla focus right
 
 bindsym $mod+Shift+$left    move left
 bindsym $mod+Shift+$down    move down
