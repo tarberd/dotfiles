@@ -67,6 +67,10 @@ set $lock_command exec swaylock -c 000000df
 set $dmenu_command exec dmenu_run
 set $grim_command exec grim -g "$(slurp)" ~/Pictures/screenshot.png
 
+set $hibernate_command swaylock -f -c 000000df && systemctl hibernate
+
+bindsym $mod+Shift+h exec swaynag --message "Are you shure you want to hibernate?" -b "Hibernate" "$hibernate_command"
+
 #move to home row
 set $up     k
 set $down   l
@@ -92,6 +96,9 @@ set $resize r
 # My Commands
 ###############################################################################
 
+set $menu "rofi -i -modi drun,run,window -show drun"
+bindsym $mod+space exec $menu
+
 bindsym $mod+Return $terminal_command
 
 bindsym $mod+$dmenu $dmenu_command
@@ -106,7 +113,6 @@ bindsym $mod+$split_h split h
 bindsym $mod+$split_v split v
 
 bindsym $mod+$full_screen fullscreen
-
 
 bindsym $mod+t layout default
 bindsym $mod+s layout stacking
