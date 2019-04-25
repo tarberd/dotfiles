@@ -34,7 +34,7 @@ endfunction
 autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" C++ rustfmt
+"" rustfmt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rustfmt_autosave = 1
 
@@ -160,9 +160,9 @@ set noswapfile
 set expandtab
 " Be smart when using tabs ;)
 set smarttab
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=0
+set tabstop=2
 " Linebreak on 500 characters
 set lbr
 set tw=500
