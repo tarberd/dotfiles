@@ -8,13 +8,16 @@
 # Ricing
 ###############################################################################
 
-set $teclado_logitech 1133:49948:Logitech_USB_Keyboard
-
-input $teclado_logitech {
+input 1133:49948:Logitech_USB_Keyboard {
     xkb_layout br
 }
 
 input 1241:32776:OBINLB_USB-HID_Keyboard {
+    xkb_layout us
+    xkb_variant intl
+}
+
+input * {
     xkb_layout us
     xkb_variant intl
 }
@@ -42,10 +45,14 @@ gaps outer 0
 set $output_center HDMI-A-1
 set $output_right  eDP-1
 
+set $output_at_work VGA-1
+
 set $wallpaper $HOME/dotfiles/wallpaper/blue_island.jpg
 
 output $output_center pos 0,0 res 2560x1080 bg $wallpaper fill
 output $output_right  pos 2560,0 res 1920x1080 bg $wallpaper fill
+
+output $output_at_work pos 0,0 res 1680x1050 bg $wallpaper fill
 
 workspace $ws1 output $output_center
 workspace $ws10 output $output_right
