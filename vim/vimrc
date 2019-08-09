@@ -4,6 +4,8 @@
 "" Vundle Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
+set path+=**
+set wildmenu
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
