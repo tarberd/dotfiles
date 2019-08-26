@@ -17,6 +17,9 @@ mkdir $HOME/.config/i3
 mkdir $HOME/.config/sway
 mkdir $HOME/.config/termite
 
+mkdir $HOME/.config/rofi
+ln -sf $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
+
 mkdir $HOME/.config/polybar
 ln -sf $HOME/dotfiles/polybar/config $HOME/.config/polybar/config
 

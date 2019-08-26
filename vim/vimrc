@@ -3,14 +3,19 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Vundle Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+set path+=**
+set wildmenu
+filetype off
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'tpope/vim-fugitive'
 
 Plugin 'scrooloose/nerdtree.git'
 
@@ -35,7 +40,7 @@ endfunction
 autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" C++ rustfmt
+"" rustfmt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rustfmt_autosave = 1
 
@@ -51,6 +56,7 @@ let g:strip_only_modified_lines=0
 "" vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
+let g:airline_theme='simple'
 set noshowmode
 set laststatus=2
 
@@ -161,9 +167,9 @@ set noswapfile
 set expandtab
 " Be smart when using tabs ;)
 set smarttab
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=0
+set tabstop=2
 " Linebreak on 500 characters
 set lbr
 set tw=500

@@ -8,9 +8,7 @@
 # Ricing
 ###############################################################################
 
-set $teclado_logitech 1133:49948:Logitech_USB_Keyboard
-
-input $teclado_logitech {
+input 1133:49948:Logitech_USB_Keyboard {
     xkb_layout br
 }
 
@@ -19,22 +17,25 @@ input 1241:32776:OBINLB_USB-HID_Keyboard {
     xkb_variant intl
 }
 
+input * {
+    xkb_layout us
+    xkb_variant intl
+}
+
 #this makes borderless (normal/pixel/none)
 default_border none
 
 #preaty workspace fonts using ttf-awsome-fonts
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
-set $ws8 8
-set $ws9 9
-set $ws10 10
-
-font pango:Mensch 8
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
 
 gaps inner 5
 gaps outer 0
@@ -42,10 +43,14 @@ gaps outer 0
 set $output_center HDMI-A-1
 set $output_right  eDP-1
 
-set $wallpaper $HOME/dotfiles/wallpaper/blue_island.jpg
+set $output_at_work VGA-1
+
+set $wallpaper $HOME/dotfiles/wallpaper/shaolin_lake.png
 
 output $output_center pos 0,0 res 2560x1080 bg $wallpaper fill
 output $output_right  pos 2560,0 res 1920x1080 bg $wallpaper fill
+
+output $output_at_work pos 0,0 res 1680x1050 bg $wallpaper fill
 
 workspace $ws1 output $output_center
 workspace $ws10 output $output_right
@@ -54,7 +59,10 @@ workspace $ws10 output $output_right
 # Bar Config
 ###############################################################################
 
-exec_always --no-startup-id $HOME/dotfiles/waybar/launch.sh
+bar {
+  strip_workspace_numbers yes
+  swaybar_command waybar
+}
 
 ###############################################################################
 # My bindings
@@ -96,7 +104,7 @@ set $resize r
 # My Commands
 ###############################################################################
 
-set $menu "rofi -i -modi drun,run,window -show drun"
+set $menu "rofi -show drun"
 bindsym $mod+space exec $menu
 
 bindsym $mod+Return $terminal_command
