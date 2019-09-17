@@ -1,31 +1,57 @@
-""Bernardo Ferrari Mendonca vimrc
+"" Bernardo Ferrari Mendonca's vimrc
+"" Feel free to copy and use this file.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Vundle Plugins
+"" Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+call plug#begin('~/.vim/bundle')
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-Plugin 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-Plugin 'scrooloose/nerdtree.git'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ntpeters/vim-better-whitespace'
+call plug#end()
 
-Plugin 'rust-lang/rust.vim'
-Plugin 'racer-rust/vim-racer'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Language Server Protocol Client config:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""Plugin 'valloric/youcompleteme'
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = expand('~/vim-lsp.log')
+" let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
-call vundle#end()
-filetype plugin indent on
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+      \ 'name': 'rls',
+      \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+      \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+      \ 'whitelist': ['rust'],
+      \ })
+endif
+
+let g:tex_flavor = "latex"
+if executable('texlab')
+  au User lsp_setup call lsp#register_server({
+      \ 'name': 'texlab',
+      \ 'cmd': {server_info->['texlab']},
+      \ 'whitelist': ['bib', 'tex'],
+      \ })
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" C++ clang-format
@@ -34,12 +60,7 @@ function! Formatonsave()
   let l:formatdiff = 1
   pyf /usr/share/clang/clang-format.py
 endfunction
-autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" rustfmt
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rustfmt_autosave = 1
+autocmd BufWritePre *.hpp,*.h,*.cc,*.cpp call Formatonsave()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-better-whitespace
@@ -47,7 +68,7 @@ let g:rustfmt_autosave = 1
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
-let g:strip_only_modified_lines=0
+let g:strip_only_modified_lines=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-airline
