@@ -58,7 +58,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! Formatonsave()
   let l:formatdiff = 1
-  pyf /usr/share/clang/clang-format.py
+  pyf /usr/local/share/clang/clang-format.py
 endfunction
 autocmd BufWritePre *.hpp,*.h,*.cc,*.cpp call Formatonsave()
 
