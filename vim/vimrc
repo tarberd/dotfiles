@@ -12,10 +12,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/bundle')
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/asyncomplete.vim'
+"
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -28,30 +31,24 @@ Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Language Server Protocol Client config:
+"" vim-lsp Language Server Protocol Client config:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:lsp_log_verbose = 1
-" let g:lsp_log_file = expand('~/vim-lsp.log')
-" let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+" if executable('rls')
+"   au User lsp_setup call lsp#register_server({
+"       \ 'name': 'rls',
+"       \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+"       \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+"       \ 'whitelist': ['rust'],
+"       \ })
+" endif
 
-if executable('rls')
-  au User lsp_setup call lsp#register_server({
-      \ 'name': 'rls',
-      \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-      \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-      \ 'whitelist': ['rust'],
-      \ })
-endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" coc Language Server Protocol Client config:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set updatetime=300
 
-let g:tex_flavor = "latex"
-if executable('texlab')
-  au User lsp_setup call lsp#register_server({
-      \ 'name': 'texlab',
-      \ 'cmd': {server_info->['texlab']},
-      \ 'whitelist': ['bib', 'tex'],
-      \ })
-endif
+" Manage with :CocConfig
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" C++ clang-format
@@ -78,8 +75,9 @@ let g:airline_theme='simple'
 set noshowmode
 set laststatus=2
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" NERD-Tree
-""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <C-n> :NERDTreeToggle<CR>
 
 "start vim with nerdtree, no need to vim . "
@@ -93,8 +91,9 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "close nerd-tree when close last file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" NERD-Commenter
-"""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1

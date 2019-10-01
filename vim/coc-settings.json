@@ -1,0 +1,10 @@
+{
+  "latex.build.executable": "latexmk",
+  "latex.build.args": [
+    "-pdf",
+    "-pvc",
+    "-interaction=nonstopmode",
+    "-synctex=1"
+  ],
+  "latex.build.onSave": false
+}

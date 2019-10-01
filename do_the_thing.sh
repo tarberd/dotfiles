@@ -2,20 +2,11 @@ git config --global user.email "bernardo.mferrari@gmail.com"
 git config --global user.name "tarberd"
 git config --global core.editor "vim"
 
-DIRECTORY_VUNDLE="$HOME/.vim/bundle/Vundle.vim"
-
-if [ ! -d  "$DIRECTORY_VUNDLE" ]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git $DIRECTORY_VUNDLE
-fi
-
 if [ ! -d  "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
 mkdir $HOME/.config
-mkdir $HOME/.config/i3
-mkdir $HOME/.config/sway
-mkdir $HOME/.config/termite
 
 mkdir $HOME/.config/rofi
 ln -sf $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
@@ -27,12 +18,23 @@ mkdir $HOME/.config/waybar
 ln -sf $HOME/dotfiles/waybar/config $HOME/.config/waybar/config
 ln -sf $HOME/dotfiles/waybar/style.css $HOME/.config/waybar/style.css
 
-ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
-ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vimrc
+mkdir $HOME/.vim
+ln -sf $HOME/dotfiles/vim/vimrc $HOME/.vim/vimrc
+ln -sf $HOME/dotfiles/vim/coc-settings.json $HOME/.vim/coc-settings.json
+
+ln -sf $HOME/dotfiles/latexmk/latexmkrc $HOME/.latexmkrc
+
+mkdir $HOME/.config/i3
 ln -sf $HOME/dotfiles/i3/config $HOME/.config/i3/config
+
+mkdir $HOME/.config/sway
 ln -sf $HOME/dotfiles/sway/config $HOME/.config/sway/config
+
+mkdir $HOME/.config/termite
 ln -sf $HOME/dotfiles/termite/config $HOME/.config/termite/config
+
+mkdir $HOME/.config/alacritty
+ln -sf $HOME/dotfiles/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 ln -sf $HOME/dotfiles/chunkwm/chunkwmrc $HOME/.chunkwmrc
 ln -sf $HOME/dotfiles/skhd/skhdrc $HOME/.skhdrc
-ln -sf $HOME/dotfiles/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
