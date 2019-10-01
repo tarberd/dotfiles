@@ -75,7 +75,7 @@ set $lock_command exec swaylock -c 000000df
 set $dmenu_command exec dmenu_run
 set $grim_command exec grim -g "$(slurp)" ~/Pictures/screenshot.png
 
-set $hibernate_command swaylock -f -c 000000df && systemctl hibernate
+set $hibernate_command killall swaynag && swaylock -f -c 000000df && systemctl hibernate
 
 bindsym $mod+Shift+h exec swaynag --message "Are you shure you want to hibernate?" -b "Hibernate" "$hibernate_command"
 
