@@ -1,10 +1,13 @@
 {
   "latex.build.executable": "latexmk",
   "latex.build.args": [
+    "-bibtex",
     "-pdf",
     "-pvc",
     "-interaction=nonstopmode",
     "-synctex=1"
   ],
-  "latex.build.onSave": false
+  "latex.build.onSave": false,
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.checkCurrentLine": true
 }

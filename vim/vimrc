@@ -12,12 +12,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/bundle')
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/asyncomplete.vim'
-"
-" Plug 'prabirshrestha/vim-lsp'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 Plug 'vim-airline/vim-airline'
@@ -31,24 +25,19 @@ Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-lsp Language Server Protocol Client config:
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" if executable('rls')
-"   au User lsp_setup call lsp#register_server({
-"       \ 'name': 'rls',
-"       \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-"       \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
-"       \ 'whitelist': ['rust'],
-"       \ })
-" endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" coc Language Server Protocol Client config:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Manage with :CocConfig
+
 set updatetime=300
 
-" Manage with :CocConfig
+let g:tex_flavor = "latex"
+
+vmap <leader>w  <Plug>(coc-diagnostic-info)
+nmap <leader>w  <Plug>(coc-diagnostic-info)
+
+vmap <leader>bl :CocCommand latex.Build<CR>
+nmap <leader>bl :CocCommand latex.Build<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" C++ clang-format
@@ -143,7 +132,7 @@ map <leader>r :source ~/.vimrc<CR>
 "" Sugar baby :)
 set t_Co=16
 syntax enable
-set number
+" set number
 "for God sake
 set splitbelow
 set splitright
