@@ -19,6 +19,11 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+base16_theme=monokai
+if [ $BASE16_THEME != $base16_theme ]; then
+  eval base16_$base16_theme
+fi
+
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
