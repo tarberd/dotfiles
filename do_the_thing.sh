@@ -4,11 +4,18 @@ git config --global user.email "bernardo.mferrari@gmail.com"
 git config --global user.name "tarberd"
 git config --global core.editor "vim"
 
-if [ ! -d  "$HOME/.oh-my-zsh" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
+ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
+
 mkdir $HOME/.config
+
+base16_shell_path="$HOME/.config/base16-shell"
+if [ ! -d $base16_shell_path ]; then
+  git clone https://github.com/chriskempson/base16-shell.git $base16_shell_path
+fi
 
 mkdir $HOME/.config/rofi
 ln -sf $HOME/dotfiles/rofi/config $HOME/.config/rofi/config
