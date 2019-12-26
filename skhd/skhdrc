@@ -1,9 +1,6 @@
 # open terminal
 alt - return : open -na /Applications/Alacritty.app/Contents/MacOS/alacritty
 
-# close window
-shift + alt - q : yabai -m window --close
-
 # focus window
 alt - j : yabai -m window --focus west
 alt - k : yabai -m window --focus south
