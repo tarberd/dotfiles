@@ -38,5 +38,7 @@ ln -sf $HOME/dotfiles/termite/config $HOME/.config/termite/config
 mkdir $HOME/.config/alacritty
 ln -sf $HOME/dotfiles/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
-ln -sf $HOME/dotfiles/chunkwm/chunkwmrc $HOME/.chunkwmrc
 ln -sf $HOME/dotfiles/skhd/skhdrc $HOME/.skhdrc
+
+mkdir $HOME/.config/yabai
+ln -sf $HOME/dotfiles/yabai/yabairc $HOME/.config/yabai/yabairc
