@@ -138,11 +138,6 @@ set hid
 "this is command history
 set history=100
 
-" Start scrolling when we're getting close to margins
-set scrolloff=13
-set sidescrolloff=15
-set sidescroll=5
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -167,4 +162,3 @@ set tw=500
 
 set ai "Auto indent
 set si "Smart indent
-

@@ -33,5 +33,3 @@ DEBEMAIL="bernardo.mferrari@gmail.com"
 DEBFULLNAME="Bernardo Ferrari Mendonca"
 export DEBEMAIL DEBFULLNAME
 
-XDG_PICTURES_DIR=$HOME/Pictures
-export XDG_PICTURES_DIR

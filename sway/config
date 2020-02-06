@@ -8,19 +8,10 @@
 # Ricing
 ###############################################################################
 
-### Input configuration
-input 1133:49948:Logitech_USB_Keyboard {
-    xkb_layout br
-}
-
-input 1241:32776:OBINLB_USB-HID_Keyboard {
-    xkb_layout us
-    xkb_variant intl
-}
-
-input * {
-    xkb_layout us
-    xkb_variant intl
+input type:keyboard {
+    xkb_layout us,us
+    xkb_variant intl,
+    xkb_options grp:shifts_toggle
 }
 
 #this makes borderless (normal/pixel/none)
@@ -47,6 +38,7 @@ set $output_right  eDP-1
 set $output_at_work VGA-1
 
 set $wallpaper $HOME/dotfiles/wallpaper/shaolin_lake.png
+set $wallpaper_lockscreen $HOME/dotfiles/wallpaper/flowers.jpg
 
 output $output_center pos 1920,0 res 2560x1080 bg $wallpaper fill
 output $output_right  pos 0,0 res 1920x1080 bg $wallpaper fill
