@@ -107,25 +107,10 @@ let g:NERDTrimTrailingWhitespace = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = " "
 
-noremap ; l
-noremap ç l
-noremap l k
-noremap k j
-noremap j h
-noremap h ;
-
-noremap <C-W>; <C-W>l
-noremap <C-W>ç <C-W>l
-noremap <C-W>l <C-W>k
-noremap <C-W>k <C-W>j
-noremap <C-W>j <C-W>h
-noremap <C-W>h <C-W>;
-
+map <leader>h <C-W>h
 map <leader>j <C-W>j
 map <leader>k <C-W>k
 map <leader>l <C-W>l
-map <leader>; <C-W>;
-map <leader>ç <C-W>;
 
 map <leader>r :source ~/.vimrc<CR>
 
