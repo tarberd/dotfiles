@@ -1,6 +1,66 @@
-"" Bernardo Ferrari Mendonca's vimrc
-"" Feel free to copy and use this file.
+" Maintainer: Bernardo Ferrari Mendonca <bernardo.mferrari@gmail.com>
+" Feel free to copy and use this file.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" First source default vimrc_example.vim file provided by upstream for sane
+" defaults.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source $VIMRUNTIME/vimrc_example.vim
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Then configure vim my way
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader = " "
+
+map <leader>h <C-W>h
+map <leader>j <C-W>j
+map <leader>k <C-W>k
+map <leader>l <C-W>l
+
+map <leader>r :source ~/.vim/vimrc<CR>
+
+"" Sugar baby :)
+set t_Co=16
+set splitbelow
+set splitright
+
+"this makes cursor show maching {}
+set showmatch
+
+" For regular expressions turn magic on
+set magic
+" Always show current position
+set ruler
+
+set whichwrap+=<,>,h,l
+"this makes one line stay as one line :)
+" set nowrap
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tex_flavor = "latex"
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" set nobackup
+" set nowb
+" set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set autoindent
+set smartindent
+
+" Use spaces instead of tabs
+set expandtab
+" Be smart when using tabs ;)
+set smarttab
+" 1 tab == 2 spaces
+set shiftwidth=0
+set tabstop=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Plugins
@@ -31,22 +91,12 @@ call plug#end()
 
 set updatetime=300
 
-let g:tex_flavor = "latex"
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-vmap <leader>w  <Plug>(coc-diagnostic-info)
-nmap <leader>w  <Plug>(coc-diagnostic-info)
-
-vmap <leader>bl :CocCommand latex.Build<CR>
-nmap <leader>bl :CocCommand latex.Build<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" C++ clang-format
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Formatonsave()
-  let l:formatdiff = 1
-  pyf /usr/local/share/clang/clang-format.py
-endfunction
-autocmd BufWritePre *.hpp,*.h,*.cc,*.cpp call Formatonsave()
+nmap <silent> <leader>= <Plug>(coc-format)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-better-whitespace
@@ -102,63 +152,3 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General vim config
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader = " "
-
-map <leader>h <C-W>h
-map <leader>j <C-W>j
-map <leader>k <C-W>k
-map <leader>l <C-W>l
-
-map <leader>r :source ~/.vimrc<CR>
-
-"" Sugar baby :)
-set t_Co=16
-syntax enable
-" set number
-"for God sake
-set splitbelow
-set splitright
-"this makes cursor show maching {}
-set showmatch
-
-" For regular expressions turn magic on
-set magic
-"Always show current position
-set ruler
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-"this makes one line stay as one line :)
-set nowrap
-"this hides buffers
-set hid
-"this is command history
-set history=100
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set expandtab
-" Be smart when using tabs ;)
-set smarttab
-" 1 tab == 2 spaces
-set shiftwidth=0
-set tabstop=2
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
-set ai "Auto indent
-set si "Smart indent

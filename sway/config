@@ -55,9 +55,9 @@ workspace $ws10 output $output_right
 set $mod Mod4
 
 set $terminal_command exec termite
-set $lock_command exec swaylock --image $wallpaper_lockscreen
+set $lock_command swaylock --image $wallpaper_lockscreen
 set $menu_command exec rofi -show drun
-set $print_screen_command exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'screenshot%y%m%d.png')
+set $print_screen_command exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'screenshot_%y_%m_%d_%H_%M_%S.png')
 
 set $hibernate_command killall swaynag && swaylock -f -c 000000df && systemctl hibernate
 
@@ -100,7 +100,7 @@ bindsym $mod+$print_screen $print_screen_command
 
 bindsym $mod+Shift+$kill      kill
 bindsym $mod+Shift+$reload    reload
-bindsym $mod+Shift+$lock      $lock_command
+bindsym $mod+Shift+$lock      exec $lock_command
 bindsym $mod+Shift+$exit      exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 bindsym $mod+Shift+$hibernate exec swaynag --message "Are you shure you want to hibernate?" -b "Hibernate" "$hibernate_command"
 
