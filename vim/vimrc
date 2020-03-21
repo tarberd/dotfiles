@@ -25,6 +25,9 @@ set t_Co=16
 set splitbelow
 set splitright
 
+" Set scrolloff back to 0
+set scrolloff=0
+
 "this makes cursor show maching {}
 set showmatch
 

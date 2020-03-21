@@ -17,6 +17,8 @@ input type:keyboard {
 #this makes borderless (normal/pixel/none)
 default_border none
 
+font monospace FontAwesome 9
+
 #preaty workspace fonts using ttf-awsome-fonts
 set $ws1 "1:"
 set $ws2 "2:"
@@ -54,10 +56,10 @@ workspace $ws10 output $output_right
 
 set $mod Mod4
 
-set $terminal_command exec termite
+set $terminal_command alacritty
 set $lock_command swaylock --image $wallpaper_lockscreen
-set $menu_command exec rofi -show drun
-set $print_screen_command exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'screenshot_%y_%m_%d_%H_%M_%S.png')
+set $menu_command rofi -show drun
+set $print_screen_command grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'screenshot_%y_%m_%d_%H_%M_%S.png')
 
 set $hibernate_command killall swaynag && swaylock -f -c 000000df && systemctl hibernate
 
@@ -66,11 +68,11 @@ set $down   j
 set $up     k
 set $right  l
 
-set $reload c
+set $reload z
 set $kill   q
 set $lock   e
 set $exit   x
-set $hibernate z
+set $hibernate c
 
 set $menu  d
 set $print_screen  p
@@ -90,13 +92,11 @@ set $layout_tabbed   w
 # My bindings:
 ###############################################################################
 
-bindsym $mod+space $menu_command
+bindsym $mod+space exec $menu_command
 
-bindsym $mod+Return $terminal_command
+bindsym $mod+Return exec $terminal_command
 
-bindsym $mod+$menu $dmenu_command
-
-bindsym $mod+$print_screen $print_screen_command
+bindsym $mod+$print_screen exec $print_screen_command
 
 bindsym $mod+Shift+$kill      kill
 bindsym $mod+Shift+$reload    reload
