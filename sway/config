@@ -8,6 +8,8 @@
 # Ricing
 ###############################################################################
 
+exec mako
+
 input type:keyboard {
     xkb_layout us,us
     xkb_variant intl,

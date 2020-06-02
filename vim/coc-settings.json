@@ -9,5 +9,6 @@
   ],
   "latex.build.onSave": false,
   "diagnostic.messageTarget": "echo",
-  "diagnostic.checkCurrentLine": true
+  "diagnostic.checkCurrentLine": true,
+  "clangd.arguments": [ ]
 }

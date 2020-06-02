@@ -25,9 +25,6 @@ set t_Co=16
 set splitbelow
 set splitright
 
-" Set scrolloff back to 0
-set scrolloff=0
-
 "this makes cursor show maching {}
 set showmatch
 
@@ -100,6 +97,10 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nmap <silent> <leader>= <Plug>(coc-format)
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" vim-better-whitespace
