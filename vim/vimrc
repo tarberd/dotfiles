@@ -96,8 +96,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 Plug 'chriskempson/base16-vim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-fugitive'
 
@@ -133,10 +132,23 @@ let g:strip_whitespace_confirm=0
 let g:strip_only_modified_lines=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" vim-airline
+"" statusline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_powerline_fonts = 1
-let g:airline_theme='simple'
+let g:lightline =
+  \ {
+	\   'colorscheme': 'wombat',
+	\   'active': {
+	\     'left': [ [ 'mode', 'paste' ],
+	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\   },
+	\   'component_function': {
+	\     'cocstatus': 'coc#status'
+	\   },
+	\ }
+
+" Use auocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 set noshowmode
 set laststatus=2
 
