@@ -10,6 +10,7 @@ _install() {
   ./sway/do-the-thing.sh install
   ./termite/do-the-thing.sh install
   ./vim/do-the-thing.sh install
+  ./nvim/do-the-thing.sh install
   ./waybar/do-the-thing.sh install
   ./yabai/do-the-thing.sh install
   ./zsh/do-the-thing.sh install
@@ -23,6 +24,7 @@ _remove() {
   ./sway/do-the-thing.sh remove
   ./termite/do-the-thing.sh remove
   ./vim/do-the-thing.sh remove
+  ./nvim/do-the-thing.sh remove
   ./waybar/do-the-thing.sh remove
   ./yabai/do-the-thing.sh remove
   ./zsh/do-the-thing.sh remove

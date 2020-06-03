@@ -10,5 +10,6 @@
   "latex.build.onSave": false,
   "diagnostic.messageTarget": "echo",
   "diagnostic.checkCurrentLine": true,
-  "clangd.arguments": [ ]
+  "clangd.arguments": [ ],
+  "rust-analyzer.serverPath": "/usr/bin/rust-analyzer"
 }
