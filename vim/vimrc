@@ -168,6 +168,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "close nerd-tree when close last file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+autocmd bufenter,VimEnter * if (exists("b:NERDTree")) | set signcolumn="auto" | endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" NERD-Commenter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
