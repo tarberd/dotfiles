@@ -2,11 +2,11 @@
 
 set -e
 
-source_dir=$(dirname $(readlink -f $0))
+source_dir=$(dirname `greadlink -f $0 || readlink -f $0`)
 install_dir=$HOME/.config/alacritty
 
 _install() {
-  echo "Linking rofi configuration files to '$install_dir'."
+  echo "Linking alacritty configuration files to '$install_dir'."
   install -d $install_dir
   ln -sf $source_dir/alacritty.yml $install_dir/alacritty.yml
 }

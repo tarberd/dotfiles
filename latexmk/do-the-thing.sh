@@ -2,7 +2,7 @@
 
 set -e
 
-source_dir=$(dirname $(readlink -f $0))
+source_dir=$(dirname `greadlink -f $0 || readlink -f $0`)
 install_dir=$HOME/
 
 _install() {
