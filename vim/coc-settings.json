@@ -11,5 +11,7 @@
   "diagnostic.messageTarget": "echo",
   "diagnostic.checkCurrentLine": true,
   "clangd.arguments": [ ],
-  "rust-analyzer.serverPath": "/usr/bin/rust-analyzer"
+  "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "rust-analyzer.procMacro.enable": true
 }

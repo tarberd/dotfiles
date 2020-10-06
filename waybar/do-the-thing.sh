@@ -5,10 +5,13 @@ set -e
 source_dir=$(dirname `greadlink -f $0 || readlink -f $0`)
 install_dir=$HOME/.config/waybar
 
-
 _install() {
   echo "Linking waybar configuration files to '$install_dir'."
   echo "Remember to install dependencies for mediaplayer and keyboard-layout scripts."
+
+  if [ ! -d $base16_shell_path ]; then
+    git clone https://github.com/chriskempson/base16-shell.git $base16_shell_path
+  fi
 
   install -d $install_dir
   ln -sf $source_dir/config $install_dir/config
