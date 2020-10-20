@@ -25,6 +25,9 @@
     "battery#bat2",
     "clock"
   ],
+  "sway/window": {
+    "max-length": 50
+  },
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
