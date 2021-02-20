@@ -9,12 +9,10 @@ _install() {
   echo "Linking vim configuration files to '$install_dir'."
   install -d $install_dir
   ln -sf $source_dir/init.vim $install_dir/init.vim
-  ln -sf $source_dir/../vim/coc-settings.json $install_dir/coc-settings.json
 }
 
 _remove() {
   rm $install_dir/init.vim
-  rm $install_dir/coc-settings.json
 }
 
 if [ $1 == "install" ]

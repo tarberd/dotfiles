@@ -67,6 +67,7 @@ set whichwrap+=<,>,h,l
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tex_flavor = "latex"
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related

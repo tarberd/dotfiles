@@ -41,16 +41,18 @@ set $output_right  eDP-1
 
 set $output_at_work VGA-1
 
-set $wallpaper $HOME/dotfiles/wallpaper/shaolin_lake.png
+set $wallpaper $HOME/dotfiles/wallpaper/surfing-jdogs.jpg
 set $wallpaper_lockscreen $HOME/dotfiles/wallpaper/flowers.jpg
 
-output $output_center pos 0,0 res 2560x1080 bg $wallpaper fill
-output $output_right  pos 2560,0 res 1920x1080 bg $wallpaper fill
+output $output_center pos 1920,0 res 2560x1080 scale 1 bg $wallpaper fill
+output $output_right  pos 0,0 res 1920x1080 scale 1 bg $wallpaper fill
 
 output $output_at_work pos 0,0 res 1680x1050 bg $wallpaper fill
 
 workspace $ws1 output $output_center
 workspace $ws10 output $output_right
+
+focus output $output_center
 
 ###############################################################################
 # Variables for bindings:
