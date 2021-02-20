@@ -1,29 +1,26 @@
 {
   "layer": "top",
   "_position": "Waybar position (top|bottom|left|right)",
-  "height": 30,
+  "height": 10,
   "_width": 1280,
   "modules-left": [
     "sway/workspaces",
     "sway/mode",
-    "custom/media"
+    "idle_inhibitor"
   ],
   "modules-center": [
-    "sway/window"
+    "clock",
+    "cpu",
+    "temperature",
+    "memory",
+    "disk",
+    "custom/kblayout"
   ],
   "modules-right": [
-    "custom/kblayout",
     "tray",
-    "idle_inhibitor",
     "pulseaudio",
     "network",
-    "cpu",
-    "memory",
-    "temperature",
     "backlight",
-    "battery",
-    "battery#bat2",
-    "clock"
   ],
   "sway/window": {
     "max-length": 50
@@ -31,7 +28,7 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
-    "format": "{name}"
+    "format": "{index} {name}"
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -52,22 +49,30 @@
     "format-alt": "{:%Y-%m-%d}"
   },
   "cpu": {
-    "format": "{usage}% ",
+    "format": " {usage}%",
     "tooltip": false
   },
   "memory": {
-    "format": "{}% "
+    "format": " {}%"
   },
+  "disk": {
+		"states": {
+			"good": 0,
+			"warning": 70,
+			"critical": 95
+		},
+		"interval": 5,
+		"format": " {percentage_used:2}%",
+		"path": "/"
+	},
   "temperature": {
     "_thermal-zone": 2,
     "_hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
-    "_format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
+    "format-critical": "{icon} {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
     "format-icons": [
-      "",
       "",
-      ""
     ]
   },
   "backlight": {
@@ -77,30 +82,6 @@
       "",
       ""
     ]
-  },
-  "battery": {
-    "states": {
-      "_good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    "_format-good-help": "An empty format will hide the module",
-    "_format-good": "",
-    "_format-full": "",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "battery#bat2": {
-    "bat": "BAT2"
   },
   "network": {
     "_interface-help": "// (Optional) To force the use of this interface",

@@ -1,46 +1,13 @@
 * {
-    border: none;
-    border-radius: 0;
-    font-family: sans-serif;
-    font-size: 15px;
-    min-height: 0;
+    font-family:  'Droid Sans Mono Nerd Font', sans-serif;
+    font-size: 14px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+    background: transparent;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-#workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: #ffffff;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: inherit;
-}
-
-#workspaces button.focused {
-    background-color: #64727D;
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#mode {
-    background-color: #64727D;
-}
-
+#workspaces,
 #clock,
 #battery,
 #cpu,
@@ -51,15 +18,42 @@ window#waybar.hidden {
 #pulseaudio,
 #custom-media,
 #tray,
+#disk,
 #mode,
-#idle_inhibitor {
-    padding: 0 10px;
-    margin: 0 4px;
-    color: #ffffff;
+#idle_inhibitor,
+#custom-kblayout {
+  color: rgba(244, 220, 200, 1);
+  background: rgba(0,80,100,0.8);
+  margin: 0px 5px;
+  padding: 0px 10px;
+  border-radius: 10px;
 }
 
-#clock {
-    background-color: #64727D;
+#idle_inhibitor {
+  padding-right: 15px;
+}
+
+#workspaces button {
+  padding: 3px 15px 0px 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+#workspaces button.focused {
+  color: rgba(235, 210, 10, 1);
+  text-decoration: underline;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
 }
 
 #battery {
@@ -93,65 +87,9 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background-color: #9b59b6;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-}
-
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
+#network.disconnected,
 #temperature.critical {
     background-color: #eb4d4b;
-}
-
-#tray {
-    background-color: #2980b9;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
 }
 
 #idle_inhibitor.activated {
