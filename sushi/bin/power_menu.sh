@@ -1,4 +1,4 @@
-lock=$HOME/dotfiles/bin/lock.sh
+lock=$HOME/dotfiles/sushi/bin/lock.sh
 
 case $(wofi -d -L 9 -l 3 -W 110 -x -100 -y 10 \
     << EOF | sed 's/^ *//'
