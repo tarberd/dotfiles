@@ -1,0 +1,14 @@
+term=alacritty
+location=top
+yoffset=180
+width=16%
+lines=11
+
+prompt=
+show=drun
+insensitive=true
+allow_images=true
+hide_scroll=true
+
+aways_parse_args=true
+show_all=true

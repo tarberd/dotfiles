@@ -1,0 +1,125 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "clock",
+        "sway/language"
+    ],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "cpu",
+        "temperature",
+        "memory",
+        "disk",
+        "network",
+        "pulseaudio",
+        "custom/power"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/language": {
+        "format": "{long} "
+    },
+    "clock": {
+        "format": "{:%R %a %d/%m/%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+        "format": "{usage}% @ {max_frequency}GHz "
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon0/temp2_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            ""
+        ]
+    },
+    "memory": {
+        "format": "{used:0.2f}/{total:0.2f} "
+    },
+    "disk": {
+        "states": {
+            "good": 0,
+            "warning": 70,
+            "critical": 95
+        },
+        "interval": 5,
+        "format": "{percentage_used}% {free} ",
+        "path": "/"
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname} ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected "
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-muted": "婢 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "speaker": "蓼",
+            "hdmi": "﴿",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "hifi": "",
+            "default": [
+                " ",
+                " "
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "_icon-size": 21,
+        "spacing": 10
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "exec $HOME/dotfiles/sushi/bin/power_menu.sh"
+    }
+}

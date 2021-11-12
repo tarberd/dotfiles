@@ -1,0 +1,71 @@
+* {
+    font-family:  'Lato', 'Droid Sans Mono Nerd Font', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+window#waybar {
+    background: rgb(37, 38, 51);
+}
+
+#workspaces,
+#language,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#disk,
+#mode,
+#idle_inhibitor,
+#custom-power
+{
+    color: rgb(37, 38, 51);
+    background: rgb(235, 77, 129);
+    margin: 0px 3px;
+    padding: 0px 10px;
+}
+
+#custom-power {
+    margin-right: 6px;
+}
+
+#language {
+    padding-right: 1.1em;
+}
+
+#idle_inhibitor {
+    padding-right: 16px;
+}
+
+#workspaces {
+    margin-left: 6px;
+}
+
+#workspaces button {
+    padding: 0px 10px;
+    color: rgb(37, 38, 51);
+    border-radius: 0;
+}
+
+#workspaces button.focused {
+    color: rgb(37, 38, 51);
+    background-color: rgb(245, 98, 36);
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+#network.disconnected,
+#temperature.critical,
+#pulseaudio.muted,
+#idle_inhibitor.activated {
+    background-color: rgb(245, 98, 36);
+}
