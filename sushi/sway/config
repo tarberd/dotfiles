@@ -53,6 +53,7 @@ set $lock_command $HOME/dotfiles/sushi/bin/lock.sh
 set $exit_command $HOME/dotfiles/sushi/bin/power_menu.sh
 set $menu_command wofi | xargs swaymsg exec --
 set $print_screen_command grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'screenshot_%y_%m_%d_%H_%M_%S.png')
+set $print_screen_copy_command grim -g "$(slurp)" - | wl-copy
 
 set $left   h
 set $down   j
@@ -86,6 +87,7 @@ bindsym $mod+space exec $menu_command
 bindsym $mod+Return exec $terminal_command
 
 bindsym $mod+$print_screen exec $print_screen_command
+bindsym $mod+Shift+$print_screen exec $print_screen_copy_command
 
 bindsym $mod+Shift+$kill      kill
 bindsym $mod+Shift+$reload    reload
