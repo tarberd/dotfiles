@@ -5,11 +5,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-# dh-make env variables
-DEBEMAIL="bernardo.mferrari@gmail.com"
-DEBFULLNAME="Bernardo Ferrari Mendonca"
-export DEBEMAIL DEBFULLNAME
-
 fpath+=$HOME/.zfunc
 
 # Path to your oh-my-zsh installation.
@@ -28,6 +23,5 @@ plugins=(git colorize compleat)
 source $ZSH/oh-my-zsh.sh
 
 git config --global user.name "tarberd"
-git config --global user.email bernardo.mferrari@gmail.com 
+git config --global user.email bernardo.mferrari@gmail.com
 git config --global core.editor nvim
-MOZ_ENABLE_WAYLAND=1

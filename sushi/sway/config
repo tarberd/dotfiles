@@ -86,8 +86,8 @@ bindsym $mod+space exec $menu_command
 
 bindsym $mod+Return exec $terminal_command
 
-bindsym $mod+$print_screen exec $print_screen_command
-bindsym $mod+Shift+$print_screen exec $print_screen_copy_command
+bindsym $mod+$print_screen exec $print_screen_copy_command
+bindsym $mod+Shift+$print_screen exec $print_screen_command
 
 bindsym $mod+Shift+$kill      kill
 bindsym $mod+Shift+$reload    reload
@@ -231,3 +231,5 @@ exec swayidle -w \
 
 #systemd stuff
 include /etc/sway/config.d/*
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
