@@ -34,11 +34,11 @@ set $ws10 "10"
 gaps inner 5
 gaps outer 0
 
-set $output_center HDMI-A-1
+set $output_center DP-1
 
 set $wallpaper $HOME/dotfiles/wallpaper/sushi_suitchi_green.png
 
-output $output_center pos 0,0 res 2560x1080 scale 1 bg $wallpaper fill
+output $output_center pos 0,0 res 3440x1440@143.975Hz scale 1 bg $wallpaper fill
 
 workspace $ws1 output $output_center
 
