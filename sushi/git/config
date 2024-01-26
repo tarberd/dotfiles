@@ -1,0 +1,10 @@
+[user]
+  name = tarberd
+  email = bernardo.mferrari@gmail.com
+[alias]
+  st = status
+  br = branch
+  d = diff
+[credential "helperselector"]
+  selected = <no helper>
+
