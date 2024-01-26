@@ -1,14 +1,9 @@
-source $HOME/.zprofile
-
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-
 fpath+=$HOME/.zfunc
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.config/zsh/oh-my-zsh
+[ ! -d "$ZSH" ] && \
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended  --keep-zshrc
 
 # ZSH_THEME="af-magic"
 # ZSH_THEME="sorin"
@@ -22,10 +17,8 @@ plugins=(git colorize compleat)
 
 source $ZSH/oh-my-zsh.sh
 
-git config --global user.name "tarberd"
-git config --global user.email bernardo.mferrari@gmail.com
-git config --global core.editor nvim
-
-export DEBEMAIL="bernardo.mferrari@gmail.com"
-export DEBFULLNAME="Bernardo Ferrari"
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+  [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+    eval "$("$BASE16_SHELL/profile_helper.sh")"
 
