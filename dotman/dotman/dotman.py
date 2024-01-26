@@ -54,7 +54,7 @@ def link(root_path: Path):
                 f"Error: Missing config_path on [dotman] on {dotman_dir} be an absolute path.")
             return
 
-        config_path = Path(os.path.expandvars(config_path))
+        config_path = Path(os.path.expandvars(config_path)).expanduser();
         if not config_path.is_absolute():
             typer.echo(
                 f"Error: config_path: '{config_path}' must be an absolute path.")
