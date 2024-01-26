@@ -1,2 +1,3 @@
 [dotman]
 config_path = "$HOME"
+file_map = [ { file = "gbp.conf", link = ".gbp.conf" } ]
