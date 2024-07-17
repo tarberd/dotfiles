@@ -1,0 +1,7 @@
+[user]
+	name = Bernardo Ferrari
+	email = bernardo.ferrari@tasking.com
+[alias]
+	st = status
+	br = branch
+	d = diff

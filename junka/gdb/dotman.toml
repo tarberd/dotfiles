@@ -1,0 +1,4 @@
+[dotman]
+config_path = "$HOME"
+
+file_map = [ { file = "gdbinit", link = ".gdbinit" } ]

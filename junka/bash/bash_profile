@@ -1,0 +1,4 @@
+# Load login settings and environment variables
+if [[ -f ~/.profile ]]; then
+  source ~/.profile
+fi

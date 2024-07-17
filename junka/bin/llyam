@@ -1,0 +1,33 @@
+#! /bin/sh
+if [ ! -f ll.yam ]
+then
+	echo "not a llng workbench"
+	exit 1
+fi
+
+if [ ${GATE} = Dgit ] || [ ${GATE} = Qgit ]; then
+	PREFIX=../../../shared/
+else
+	PREFIX=../
+fi
+
+LLDIR=`pwd`
+#arl re2
+for i in util maulib exprlib ios objlib lslparser
+do
+	if [ ${i} = lslparser ]; then
+		BUILDDIR=../${i}
+	else
+		BUILDDIR=${PREFIX}${i}
+	fi
+	if [ ! -d ${BUILDDIR} ]
+	then
+		echo "warning: directory ${BUILDDIR} does not exist, skipping"
+		continue;
+	fi
+	cd ${BUILDDIR}
+	yam $* || exit $?
+	cd $LLDIR
+done
+
+yam $*

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+TASKING_PATH=(${PATH//:/$' '})
+TASKING_PATH_LEN=${#TASKING_PATH[@]}
+USER_PATH=(${HOMEBREW_PREFIX}/bin ${HOMEBREW_PREFIX}/sbin ${HOME}/.local/bin)
+NEW_PATH=(
+  ${TASKING_PATH[@]:0:$TASKING_PATH_LEN-2}
+  ${USER_PATH[@]}
+  ${TASKING_PATH[@]:$TASKING_PATH_LEN-2}
+)
+NEW_PATH=${NEW_PATH[@]}
+PATH=${NEW_PATH// /':'}
+export PATH
+
+TASKING_TREE=$(basename "$GITROOT")
+PS1="\u@\h ($BUILDTYPE-$RHOST "$TASKING_TREE") \[\e[1m\]\w\[\e[1m\]\$\[\e[0m\] "
+unset TASKING_TREE
+
+source ${HOME}/dotfiles/junka/env/user_rc.sh
+
+alias td="cd $GITROOT"
+
+export RCC_DEFAULT=""
+export RCC=${RCC_DEFAULT}
+
+function export_debug() {
+  export RCC="${RCC_DEFAULT} -g -nO"
+}
+
+function export_nodebug() {
+  export RCC=${RCC_DEFAULT}
+}
+
+export_debug
+cd -
