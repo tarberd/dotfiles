@@ -1,4 +1,4 @@
 return {
-    "p00f/clangd_extensions.nvim",
-    opts = {},
+  "p00f/clangd_extensions.nvim",
+  opts = {},
 }

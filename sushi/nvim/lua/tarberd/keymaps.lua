@@ -3,14 +3,15 @@ local map = vim.keymap.set
 local M = {}
 
 M.remap = function()
-  vim.keymap.set("n", "<leader>pv", vim.cmd.Explore)
+  vim.keymap.set("n", "<leader>pe", vim.cmd.Explore)
 end
 
 M.create_buffer_lsp_keymaps = function(_, buffer)
   -- NOTE there are other cool possibilities listed in nvim-lspconfig
-  map( "n", "D", vim.lsp.buf.declaration, { silent = true, buffer = buffer, desc = "Declaration" })
+  map( "n", "gD", vim.lsp.buf.declaration, { silent = true, buffer = buffer, desc = "Declaration" })
   map( "n", "gd", vim.lsp.buf.definition, { silent = true, buffer = buffer, desc = "Definition" })
-  map( "n", "<localleader>r", vim.lsp.buf.references, { silent = true, buffer = buffer, desc = "References" })
+  map( "n", "<leader>r", vim.lsp.buf.references, { silent = true, buffer = buffer, desc = "References" })
+  map( "n", "<leader>r", vim.lsp.buf.workspace_symbol, { silent = true, buffer = buffer, desc = "References" })
   map( "n", "<localleader>i", vim.lsp.buf.implementation, { silent = true, buffer = buffer, desc = "Implementation" })
   map( "n", "<localleader>t", vim.lsp.buf.type_definition, { silent = true, buffer = buffer, desc = "Type definition" })
   map( "n", "<localleader>h", vim.lsp.buf.hover, { silent = true, buffer = buffer, desc = "Hover" })
