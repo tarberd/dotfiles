@@ -1,0 +1,5 @@
+
+DOTFILES_PREFIX=${HOME}/dotfiles/sushi
+export DOTFILES_PREFIX
+source ${DOTFILES_PREFIX}/env/user_profile.sh
+

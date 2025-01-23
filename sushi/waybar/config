@@ -35,9 +35,9 @@
             "8": "八",
             "9": "九",
             "10": "十",
-            "urgent": "",
-            "focused": "",
-            "default": ""
+            "_urgent": "",
+            "_focused": "",
+            "_default": ""
         }
     },
     "sway/mode": {
@@ -51,7 +51,7 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
-        "format": "{usage}% @ {max_frequency}GHz "
+        "format": "{usage}% @ {max_frequency}GHz "
     },
     "temperature": {
         "thermal-zone": 2,
@@ -64,7 +64,7 @@
         ]
     },
     "memory": {
-        "format": "{used:0.2f}/{total:0.2f} "
+        "format": "{used:0.2f}/{total:0.2f} "
     },
     "disk": {
         "states": {
@@ -73,15 +73,15 @@
             "critical": 95
         },
         "interval": 5,
-        "format": "{percentage_used}% {free} ",
+        "format": "{percentage_used}% of {free} ",
         "path": "/"
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname} ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected "
+        "format-ethernet": "{ifname} ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) 󰌙",
+        "format-disconnected": "Disconnected 󰌙"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
@@ -90,14 +90,14 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphones": "",
-            "speaker": "蓼",
-            "hdmi": "﴿",
-            "headset": "",
+            "headphones": "󰋋",
+            "speaker": "󰓃",
+            "hdmi": "󰡁",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
-            "hifi": "",
+            "hifi": "󰋎",
             "default": [
                 " ",
                 " "
@@ -114,11 +114,11 @@
         }
     },
     "tray": {
-        "_icon-size": 21,
+        "icon-size": 21,
         "spacing": 10
     },
     "custom/power": {
-        "format": "",
+        "format": "",
         "tooltip": false,
         "on-click": "exec $HOME/dotfiles/sushi/bin/power_menu.sh"
     }

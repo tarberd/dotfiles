@@ -8,12 +8,10 @@
 # Ricing
 ###############################################################################
 
-exec mako
-
 input type:keyboard {
     xkb_layout us,us
     xkb_variant intl,
-    xkb_options grp:shifts_toggle
+    xkb_options grp:win_space_toggle
 }
 
 #this makes borderless (normal/pixel/none)
@@ -35,10 +33,12 @@ gaps inner 5
 gaps outer 0
 
 set $output_center DP-1
+set $output_right DP-2
 
 set $wallpaper $HOME/dotfiles/wallpaper/sushi_suitchi_green.png
 
-output $output_center pos 0,0 res 3440x1440@143.975Hz scale 1 bg $wallpaper fill
+output $output_center pos 0 0 mode 2560x1440@239.970Hz scale 1 bg $wallpaper fill
+output $output_right pos 2560 0 mode 2560x1440@239.970Hz scale 1 bg $wallpaper fill
 
 workspace $ws1 output $output_center
 
@@ -48,10 +48,10 @@ workspace $ws1 output $output_center
 
 set $mod Mod4
 
-set $terminal_command alacritty
+set $terminal_command foot
 set $lock_command $HOME/dotfiles/sushi/bin/lock.sh
 set $exit_command $HOME/dotfiles/sushi/bin/power_menu.sh
-set $menu_command wofi | xargs swaymsg exec --
+set $menu_command wmenu-run
 set $print_screen_command grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'screenshot_%y_%m_%d_%H_%M_%S.png')
 set $print_screen_copy_command grim -g "$(slurp)" - | wl-copy
 
@@ -82,7 +82,9 @@ set $layout_tabbed   w
 # My bindings:
 ###############################################################################
 
-bindsym $mod+space exec $menu_command
+#bindsym $mod+space exec $menu_command
+bindsym --no-repeat --release Super_L exec pkill $menu_command || $menu_command
+bindsym --no-repeat --release Super_R exec pkill $menu_command || $menu_command
 
 bindsym $mod+Return exec $terminal_command
 
@@ -98,7 +100,7 @@ bindsym $mod+Shift+$exit      exec $exit_command
 # Despite the name, also works for non-floating windows.
 # Change normal to inverse to use left mouse button for resizing and right
 # mouse button for dragging.
-floating_modifier $mod normal
+# floating_modifier $mod normal
 
 #
 # Moving around:
