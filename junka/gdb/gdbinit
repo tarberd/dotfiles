@@ -2372,6 +2372,21 @@ set python print-stack full
 
 # Start ------------------------------------------------------------------------
 
+define ph
+  eval "set $debug_arg = $%s", $argc ? "arg0" : ""
+  call hil_dump($debug_arg)
+end
+
+define pm
+  eval "set $debug_arg = $%s", $argc ? "arg0" : ""
+  call mil_dump($debug_arg)
+end
+
+define pt
+  eval "set $debug_arg = $%s", $argc ? "arg0" : ""
+  call type_debug($debug_arg)
+end
+
 python Dashboard.start()
 
 # File variables ---------------------------------------------------------------

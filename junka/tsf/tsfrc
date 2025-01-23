@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# recover users profile path giving preference to tsf
+USER_PATH=(${TARBERD_PROFILE_PATH//:/$' '})
+
 TASKING_PATH=(${PATH//:/$' '})
 TASKING_PATH_LEN=${#TASKING_PATH[@]}
-USER_PATH=(${HOMEBREW_PREFIX}/bin ${HOMEBREW_PREFIX}/sbin ${HOME}/.local/bin)
 NEW_PATH=(
   ${TASKING_PATH[@]:0:$TASKING_PATH_LEN-2}
   ${USER_PATH[@]}
@@ -16,8 +18,10 @@ TASKING_TREE=$(basename "$GITROOT")
 PS1="\u@\h ($BUILDTYPE-$RHOST "$TASKING_TREE") \[\e[1m\]\w\[\e[1m\]\$\[\e[0m\] "
 unset TASKING_TREE
 
+# recover users rc config
 source ${HOME}/dotfiles/junka/env/user_rc.sh
 
+# aliases and utils
 alias td="cd $GITROOT"
 
 export RCC_DEFAULT=""
@@ -31,5 +35,11 @@ function export_nodebug() {
   export RCC=${RCC_DEFAULT}
 }
 
+# tell my tools we are inside tsf shell (e.g. neovim)
+export INSIDE_TSF_SHELL=1
+
+# please give me debug symbols by default
 export_debug
+
+# cmon, why mess with the directory I am already in, bring me back please
 cd -
