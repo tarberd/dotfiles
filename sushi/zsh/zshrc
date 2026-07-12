@@ -2,7 +2,7 @@
 [[ $- == *i* ]] || return
 
 # load common shell rc file
-source ${DOTFILES_PREFIX}/env/user_rc.sh
+source ${HOME}/dotfiles/sushi/env/user_rc.sh
 
 # Path to your oh-my-zsh installation.
 if [[ -z "${XDG_CONFIG_HOME}" ]]; then

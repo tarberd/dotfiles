@@ -1,0 +1,4 @@
+[dotman]
+config_path = "$HOME/.config/tmux"
+
+file_map = [ { file = "tmux.conf", link = "tmux.conf" } ]
